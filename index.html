@@ -1,50 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaswanth Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee & Tea Pre-Booking</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/590/590836.png">
+
 </head>
 <body>
-  <!-- Navigation Bar -->
+
+  <!-- Top Bar -->
+  <div class="top-bar">
   <header>
-    <nav>
-      <h2 class="logo">Jaswanth</h2>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+ <div class="logo">☕ CAFFIENE</div>
+  <!-- Navigation stays below -->
+</header>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search teas or coffees...">
+      <button id="searchBtn">Search</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#teas">Teas</a></li>
+    <li><a href="#coffees">Coffees</a></li>
+    <li><a href="#links">Links</a></li>
+    <li><button id="cartBtn">🛒 Cart</button></li>
+  </ul>
+</nav>
+
+<!-- Order Confirmation Tick -->
+<div id="orderConfirmation" style="display:none; text-align:center; margin:20px;">
+  <span style="font-size:40px; color:green;">✔ Order Confirmed!</span>
+</div>
+
+<div id="cartSection" style="display:none; padding:20px; background:#f9f9f9; border:1px solid #ddd; max-width:500px; margin:20px auto; position:relative;">
+  <button id="closeCartBtn" style="position:absolute; top:10px; right:10px;">✖</button>
+  <h2>Your Cart</h2>
+  <ul id="cartItems"></ul>
+  <p id="cartTotal">Total: ₹0</p>
+  <button id="payNowBtn">Pay Now</button>
+
+  <div id="qrSection" style="display:none; margin-top:15px; text-align:center;">
+    <h3>Scan & Pay</h3>
+    <img src="phonepay.jpg" alt="QR Code" width="200">
+    <br>
+    <button id="closeQRBtn" style="margin-top:10px;">Close</button>
+  </div>
+</div>
+
+
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
-      <h1>Hi, I'm <span>Jaswanth</span></h1>
-      <h3>Aspiring Web Developer</h3>
-      <p>Passionate about learning web development and creating amazing websites using HTML, CSS, and Python.</p>
-      <a href="#contact" class="btn">Hire Me</a>
+      <h1>Welcome to Caffiene</h1>
+      <p>Pre-book your drink & save time!</p>
     </div>
-    <div class="hero-img"><img src="my photo.jpg"alt="Jaswanth" 
+    <div class="hero-image">
+      <img src="coffee-cup.png" alt="Coffee Cup" id="coffeeCup">
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>Hi! I'm <strong>Jaswanth</strong>, currently starting my journey in B.Tech with a focus on Computer Science and Engineering.</p>
-    <p>I have completed my basic training in Python and Web Development (HTML & CSS). I enjoy building websites, solving logical problems, and continuously learning new technologies.</p>
-    <p>In the future, I hope to explore fields like machine learning, app development, and data science. This website is my very first step into the world of development!</p>
+  <section id="about">
+    <h2>About Us</h2>
+    <ul>
+      <li>Freshly brewed coffee and tea daily.</li>
+      <li>Quick pre-booking for busy schedules.</li>
+      <li>Premium quality ingredients and authentic taste.</li>
+      <li>Affordable pricing and fast service.</li>
+      <li>Tea is a ritual, an art that nourishes the soul</li>
+    </ul>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p><strong>Name:</strong> Jaswanth</p>
-    <p><strong>Phone:</strong> 9392776636</p>
-    <p><strong>Email:</strong> jaswanthraogaddale@gmail.com</p>
+  <!-- Teas Section -->
+  <section id="teas" class="menu">
+    <h2>Top Teas</h2>
+    <div class="menu-container">
+      <div class="item"><img src="darjeeling.jpg"><p>Darjeeling - ₹90</p><button data-item="Darjeeling" data-price="90">Pre-Book</button></div>
+      <div class="item"><img src="earl-grey.jpg"><p>Earl Grey - ₹85</p><button data-item="Earl Grey" data-price="85">Pre-Book</button></div>
+      <div class="item"><img src="jasmine-tea.jpeg"><p>Jasmine - ₹100</p><button data-item="Jasmine" data-price="100">Pre-Book</button></div>
+      <div class="item"><img src="green-tea.jpg"><p>Green Tea - ₹80</p><button data-item="Green Tea" data-price="80">Pre-Book</button></div>
+      <div class="item"><img src="masala-chai.jpg"><p>Masala Chai - ₹70</p><button data-item="Masala Chai" data-price="70">Pre-Book</button></div>
+      <div class="item"><img src="matcha.jpg"><p>Matcha - ₹120</p><button data-item="Matcha" data-price="120">Pre-Book</button></div>
+      <div class="item"><img src="oolong-tea.jpg"><p>Oolong - ₹110</p><button data-item="Oolong" data-price="110">Pre-Book</button></div>
+      <div class="item"><img src="pu-erh.jpg"><p>Pu-erh - ₹130</p><button data-item="Pu-erh" data-price="130">Pre-Book</button></div>
+    </div>
   </section>
+
+  <!-- Coffees Section -->
+  <section id="coffees" class="menu">
+    <h2>Top Coffees</h2>
+    <div class="menu-container">
+      <div class="item"><img src="americano.jpg"><p>Americano - ₹100</p><button data-item="Americano" data-price="100">Pre-Book</button></div>
+      <div class="item"><img src="cappuccino.jpg"><p>Cappuccino - ₹150</p><button data-item="Cappuccino" data-price="150">Pre-Book</button></div>
+      <div class="item"><img src="espresso.jpg"><p>Espresso - ₹120</p><button data-item="Espresso" data-price="120">Pre-Book</button></div>
+      <div class="item"><img src="latte.jpg"><p>Latte - ₹140</p><button data-item="Latte" data-price="140">Pre-Book</button></div>
+      <div class="item"><img src="mocha.jpg"><p>Mocha - ₹160</p><button data-item="Mocha" data-price="160">Pre-Book</button></div>
+    </div>
+  </section>
+
+
+  <!-- Links Section -->
+  <section id="links">
+    <h2>☕ My Links ☕</h2>
+    <div class="link-buttons">
+      <a href="https://wa.me/9392776636" target="_blank">WhatsApp</a>
+      <a href="mailto:jaswanthraogaddale@gmail.com">Email</a>
+      <a href="https://instagram.com/thenameisjaswanth07" target="_blank">Instagram</a>
+    </div>
+    <footer>© 2025 All Rights Reserved</footer>
+  </section>
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html
