@@ -1,0 +1,67 @@
+def coffee():
+    cart = []
+    while True:
+        print("\n--WELCOME TO CAFFIENE COFFEE--")
+        print("1.Order Coffee")
+        print("2.view Order")
+        print("3.update order")
+        print('4.Delete order')
+        print("5.Total bill")
+        print("6.Exit")
+        print("--COFFEE MENU--")
+        coffee_names = {
+            'cappucino':80,
+            'espresso':70,
+            'latte':60,
+            'Americano':90,
+            'Mocha':100
+        }
+        print(coffee_names)
+        choice=int(input("Enter your choice: "))
+
+        if choice==1:
+            name=input("Enter coffee  name in menu: ")
+            if name in coffee_names:
+                cart.append(name)
+                print(f"{name} is ordered successfully")
+            else:
+                print(f"{name} is not in menu")
+        elif choice==2:
+            if cart:
+                print("\nYour orders")
+                for item in cart:
+                    print(item)
+            else:
+                print("No orders found")
+        elif choice==3:
+            old_coffee=input("Enter old coffee name which you ordered: ")
+            if old_coffee in cart:
+                new_coffee=input("Enter new coffee name: ")
+                if new_coffee in coffee_names:
+                    index=cart.index(old_coffee)
+                    cart[index] = new_coffee
+                    print(f"{new_coffee} is ordered successfully")
+                else:
+                    print(f"{new_coffee} is not in menu")
+            else:
+                print("\n No order found")
+        elif choice==4:
+            name=input("Enter coffee name to delete: ")
+            if name in coffee_names:
+                cart.remove(name)
+                print(f"{name} is deleted successfully")
+            else:
+                print(f"{name} is not found")
+        elif choice==5:
+            total=0
+            if cart:
+                for item in cart:
+                    total+=coffee_names[item]
+                    print(f"\nTotal coffee is ${total}")
+            else:
+                print("\n No coffee found")
+        elif choice==6:
+            print("Exiting the program")
+            break
+coffee()
+
