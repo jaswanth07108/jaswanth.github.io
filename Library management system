@@ -1,0 +1,40 @@
+def book():
+    print("\n--WELCOME TO  LIBRARY MANAGEMENT--")
+    books=[]
+    while True:
+        choice = int(input("\n1.Add Book\n2.View Book\n3.update Book\n4.Delete Book\n5.Exit Book\nEnter your choice\n "))
+        if choice==1:
+            book_name=input("Enter Book name to add: ")
+            author_name=input("Enter Author name to add: ")
+            books.append([book_name,author_name])
+            print(f"{book_name} and {author_name} are added")
+        elif choice==2:
+            if not books:
+                print("No Books Added")
+            else:
+                for i in books:
+                    print(f"Book:{i[0]} and author:{i[1]} ")
+                
+        elif choice==3:
+           old_bookname=input("Enter old Book name to update : ")
+           for  i in books:
+               if i[0]==old_bookname:
+                   i[0]=input("Enter Book name to update: ")
+                   i[1]=input("Enter Author name to update: ")
+                   print("Book updated Successfully")
+        elif choice==4:
+            book_name=input("Enter  book name to delete: ")
+            author_name = input("Enter Author name to delete: ")
+            if[book_name,author_name] in books:
+                books.remove([book_name,author_name])
+                print(f"{book_name}  is  deleted")
+            else:
+                print('Book not found')
+
+        elif choice==5:
+            print("Exiting  book")
+            break
+        else:
+            print("Invalid Choice")
+
+book()
