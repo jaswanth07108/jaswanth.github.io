@@ -1,0 +1,11 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+Earthquake=np.random.uniform(2,9,50)
+print(Earthquake)
+plt.hist(Earthquake,bins=10)
+plt.title("Earthquake Magnitude Distribution")
+plt.xlabel("Magnitude")
+plt.ylabel("Frequency")
+plt.show()
