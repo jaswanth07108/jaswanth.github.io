@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
+time=[1,2,3,4,5]
+speed=[100,300,500,600,700]
+data=pd.DataFrame({"time":time,"speed":speed})
+print(data)
+plt.fill_between(time,speed)
+plt.title('Rocket Speed Tracker',color='orange')
+plt.xlabel('time',color='g')
+plt.ylabel('speed',color='r')
+plt.plot(time,speed,color='black')
+plt.show()
