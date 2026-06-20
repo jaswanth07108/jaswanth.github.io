@@ -1,0 +1,72 @@
+movies={
+    "RRR":200,
+    "Salar":300,
+    "Pushpa-2":500
+}
+bookings=[]
+def view_movies():
+    print("Available Movies: ")
+    for movie,price in movies.items():
+        print(f"{movie}-{price}/-")
+def book_tickets():
+    movie=input("Enter your movie: ")
+    if movie in movies:
+        tickets=int(input("Enter your no of tickets: "))
+        total=movies[movie]*tickets
+
+        bookings.append({
+            "movie":movie,
+            "tickets":tickets,
+            "total":total
+        })
+        print("tickets booked Successfully")
+        print("Total: ",total)
+    else:
+        print("Sorry you have entered invalid movie")
+def view_bookings():
+    if len(bookings)==0:
+        print("No bookings available")
+    else:
+        print("\n--Booking Details--")
+        for b in bookings:
+            print(f''
+                  f"movie: {b["movie"]}, "
+                  f"tickets: {b["tickets"]},"
+                  f"total:{b["total"]}"
+                  )
+def cancel_tickets():
+    movie=input("Enter your movie: ")
+    for b in bookings:
+        if b["movie"]==movie:
+            bookings.remove(b)
+            print("Bookings successfully removed")
+            return
+
+    print("You have entered invalid movie")
+while True:
+    print("--MOVIE TICKET BOOKING SYSTEM--\n")
+    print("1.View Movies\n")
+    print("2.Book Tickets\n")
+    print("3.Cancel Tickets\n")
+    print("4.view Bookings\n")
+    print("5.Exit\n")
+    choice=int(input("Enter your choice: "))
+    if choice==1:
+        view_movies()
+    elif choice==2:
+        book_tickets()
+    elif choice==3:
+        cancel_tickets()
+    elif choice==4:
+        view_bookings()
+    elif choice==5:
+        print("Thank you")
+        break
+    else:
+        print('You have entered invalid choice')
+
+
+
+
+
+
